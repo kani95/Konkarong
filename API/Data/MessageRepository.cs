@@ -1,4 +1,5 @@
-﻿using API.DTOs;
+﻿using System.IO.Compression;
+using API.DTOs;
 using API.Entities;
 using API.Helpers;
 using API.Interfaces;
@@ -37,6 +38,14 @@ public class MessageRepository : IMessageRepository
     public async Task<Connection> GetConnnection(string connectionId)
     {
         return await _context.Connections.FindAsync(connectionId);
+    }
+
+    public async Task<Group> GetGroupForConnection(string connectionId)
+    {
+        return await _context.Groups
+            .Include(x => x.Connections)
+            .Where(x => x.Connections.Any(c => c.ConnectionId == connectionId))
+            .FirstOrDefaultAsync();
     }
 
     public async Task<Message> GetMessage(int id)
