@@ -71,14 +71,16 @@ public class UserRepository : IUserRepository
             .ToListAsync();
     }
 
-    public async Task<bool> SaveAllAsync()
-    {
-        return await _context.SaveChangesAsync() > 0;
-    }
-
     public void Update(AppUser user)
     {
         // informs entity framework tracker that a change has happened
         _context.Entry(user).State = EntityState.Modified;
+    }
+
+    public async Task<string> GetUserGender(string username)
+    {
+        return await _context.Users
+            .Where(x => x.UserName == username)
+            .Select(x => x.Gender).FirstOrDefaultAsync();
     }
 }
