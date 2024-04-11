@@ -78,20 +78,20 @@ public class MessageRepository : IMessageRepository
         return await PagedList<MessageDTO>.CreateAsync(messages, messageParams.PageNumber, messageParams.PageSize);
     }
 
-    public async Task<IEnumerable<MessageDTO>> GetMessageThread(string currentUserName, string recipientUserName)
+    public async Task<IEnumerable<MessageDTO>> GetMessageThread(string currentUsername, string recipientUsername)
     {
         var query = _context.Messages
             .Where(
-                m => m.RecipientUsername == currentUserName && m.RecipientDeleted == false &&
-                    m.SenderUsername == recipientUserName ||
-                    m.RecipientUsername == recipientUserName && m.SenderDeleted == false &&
-                    m.SenderUsername == currentUserName 
+                m => m.RecipientUsername == currentUsername && m.RecipientDeleted == false &&
+                    m.SenderUsername == recipientUsername ||
+                    m.RecipientUsername == recipientUsername && m.SenderDeleted == false &&
+                    m.SenderUsername == currentUsername 
             )
             .OrderBy(m => m.MessageSent)
             .AsQueryable();
 
         var unreadMessages = query.Where(m => m.DateRead == null && 
-            m.RecipientUsername == currentUserName).ToList();
+            m.RecipientUsername == currentUsername).ToList();
         
         if (unreadMessages.Any())
         {

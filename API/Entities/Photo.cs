@@ -14,4 +14,5 @@ public class Photo
     // auto delete photo when user is deleted
     public int AppUserId { get; set; }
     public AppUser AppUser { get; set; }
+    public bool IsApproved { get; set; }
 }

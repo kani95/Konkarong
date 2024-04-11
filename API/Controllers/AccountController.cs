@@ -29,11 +29,11 @@ public class AccountController : BaseApiController
     public async Task<ActionResult<UserDTO>> Register(RegisterDTO registerDTO)
     {
 
-        if (await UserExists(registerDTO.UserName)) return BadRequest("Username is taken");
+        if (await UserExists(registerDTO.Username)) return BadRequest("Username is taken");
 
         var user = _mapper.Map<AppUser>(registerDTO);
 
-        user.UserName = registerDTO.UserName.ToLower();
+        user.UserName = registerDTO.Username.ToLower();
        
         var result = await _userManager.CreateAsync(user, registerDTO.Password);
 
@@ -45,7 +45,7 @@ public class AccountController : BaseApiController
 
         return new UserDTO
         {
-            UserName = user.UserName,
+            Username = user.UserName,
             Token = await _tokenService.CreateToken(user),
             KnownAs = user.KnownAs,
             Gender = user.Gender
@@ -57,7 +57,7 @@ public class AccountController : BaseApiController
     {
         var user = await _userManager.Users
             .Include(p => p.Photos)
-            .SingleOrDefaultAsync(user => user.UserName == loginDTO.UserName.ToLower());
+            .SingleOrDefaultAsync(user => user.UserName == loginDTO.Username.ToLower());
 
         if (user == null) return Unauthorized("invalid username");
 
@@ -67,7 +67,7 @@ public class AccountController : BaseApiController
 
         return new UserDTO
         {
-            UserName = user.UserName,
+            Username = user.UserName,
             Token = await _tokenService.CreateToken(user),
             PhotoUrl = user.Photos.FirstOrDefault(photo => photo.IsMain)?.Url,
             KnownAs = user.KnownAs,

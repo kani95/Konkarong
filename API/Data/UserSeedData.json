@@ -1,6 +1,6 @@
 [
     {
-        "UserName": "Lisa",
+        "Username": "Lisa",
         "Gender": "female",
         "DateOfBirth": "1956-07-22",
         "KnownAs": "Lisa",
@@ -14,12 +14,13 @@
         "Photos": [
             {
                 "Url": "https://randomuser.me/api/portraits/women/54.jpg",
-                "IsMain": true
+                "IsMain": true,
+                "IsApproved": true
             }
         ]
     },
     {
-        "UserName": "Karen",
+        "Username": "Karen",
         "Gender": "female",
         "DateOfBirth": "1995-10-12",
         "KnownAs": "Karen",
@@ -33,12 +34,13 @@
         "Photos": [
             {
                 "Url": "https://randomuser.me/api/portraits/women/50.jpg",
-                "IsMain": true
+                "IsMain": true,
+                "IsApproved": true
             }
         ]
     },
     {
-        "UserName": "Margo",
+        "Username": "Margo",
         "Gender": "female",
         "DateOfBirth": "1959-01-24",
         "KnownAs": "Margo",
@@ -52,12 +54,13 @@
         "Photos": [
             {
                 "Url": "https://randomuser.me/api/portraits/women/14.jpg",
-                "IsMain": true
+                "IsMain": true,
+                "IsApproved": true
             }
         ]
     },
     {
-        "UserName": "Lois",
+        "Username": "Lois",
         "Gender": "female",
         "DateOfBirth": "1988-06-22",
         "KnownAs": "Lois",
@@ -71,12 +74,13 @@
         "Photos": [
             {
                 "Url": "https://randomuser.me/api/portraits/women/11.jpg",
-                "IsMain": true
+                "IsMain": true,
+                "IsApproved": true
             }
         ]
     },
     {
-        "UserName": "Ruthie",
+        "Username": "Ruthie",
         "Gender": "female",
         "DateOfBirth": "1956-01-12",
         "KnownAs": "Ruthie",
@@ -90,12 +94,13 @@
         "Photos": [
             {
                 "Url": "https://randomuser.me/api/portraits/women/84.jpg",
-                "IsMain": true
+                "IsMain": true,
+                "IsApproved": true
             }
         ]
     },
     {
-        "UserName": "Todd",
+        "Username": "Todd",
         "Gender": "male",
         "DateOfBirth": "1950-02-07",
         "KnownAs": "Todd",
@@ -109,12 +114,13 @@
         "Photos": [
             {
                 "Url": "https://randomuser.me/api/portraits/men/90.jpg",
-                "IsMain": true
+                "IsMain": true,
+                "IsApproved": true
             }
         ]
     },
     {
-        "UserName": "Porter",
+        "Username": "Porter",
         "Gender": "male",
         "DateOfBirth": "1967-04-09",
         "KnownAs": "Porter",
@@ -128,12 +134,13 @@
         "Photos": [
             {
                 "Url": "https://randomuser.me/api/portraits/men/87.jpg",
-                "IsMain": true
+                "IsMain": true,
+                "IsApproved": true
             }
         ]
     },
     {
-        "UserName": "Mayo",
+        "Username": "Mayo",
         "Gender": "male",
         "DateOfBirth": "1990-03-23",
         "KnownAs": "Mayo",
@@ -147,12 +154,13 @@
         "Photos": [
             {
                 "Url": "https://randomuser.me/api/portraits/men/57.jpg",
-                "IsMain": true
+                "IsMain": true,
+                "IsApproved": true
             }
         ]
     },
     {
-        "UserName": "Skinner",
+        "Username": "Skinner",
         "Gender": "male",
         "DateOfBirth": "1952-12-01",
         "KnownAs": "Skinner",
@@ -166,12 +174,13 @@
         "Photos": [
             {
                 "Url": "https://randomuser.me/api/portraits/men/22.jpg",
-                "IsMain": true
+                "IsMain": true,
+                "IsApproved": true
             }
         ]
     },
     {
-        "UserName": "Davis",
+        "Username": "Davis",
         "Gender": "male",
         "DateOfBirth": "1978-03-20",
         "KnownAs": "Davis",
@@ -185,7 +194,8 @@
         "Photos": [
             {
                 "Url": "https://randomuser.me/api/portraits/men/93.jpg",
-                "IsMain": true
+                "IsMain": true,
+                "IsApproved": true
             }
         ]
     }
