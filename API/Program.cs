@@ -14,6 +14,27 @@ builder.Services.AddControllers();
 builder.Services.AddApplicationServices(builder.Configuration);
 builder.Services.AddIdentityServices(builder.Configuration);
 
+var connString = "";
+if (builder.Environment.IsDevelopment())
+{
+    connString = builder.Configuration.GetConnectionString("DefaultConnection");
+}
+else
+{
+    var connUrl = Environment.GetEnvironmentVariable("DATABASE_URL");
+    var port = Environment.GetEnvironmentVariable("DB_PORT");
+    var pgUser = Environment.GetEnvironmentVariable("DB_USER");
+    var pgHost = Environment.GetEnvironmentVariable("DB_HOST");
+    var pgPass = Environment.GetEnvironmentVariable("DB_PASS");
+    var pgDb = Environment.GetEnvironmentVariable("DB_DB");
+
+    connString = $"Server={pgHost};Port={port};User Id={pgUser};Password={pgPass};Database={pgDb};";
+    builder.Services.AddDbContext<DataContext>(opt => 
+    {
+        opt.UseNpgsql(connString);
+    });
+}
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
