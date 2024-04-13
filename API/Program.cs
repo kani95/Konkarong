@@ -29,12 +29,12 @@ else
     var pgDb = Environment.GetEnvironmentVariable("DB_DB");
 
     connString = $"Server={pgHost};Port={port};User Id={pgUser};Password={pgPass};Database={pgDb};";
-    builder.Services.AddDbContext<DataContext>(opt => 
-    {
-        opt.UseNpgsql(connString);
-    });
+    
 }
-
+builder.Services.AddDbContext<DataContext>(opt => 
+{
+    opt.UseNpgsql(connString);
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
