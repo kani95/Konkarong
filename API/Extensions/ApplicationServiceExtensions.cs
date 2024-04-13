@@ -15,7 +15,7 @@ public static class ApplicationServiceExtensions
         // Add services to the container.
         services.AddDbContext<DataContext>(opt => 
         {
-            opt.UseSqlite(config.GetConnectionString("DefaultConnection"));
+            opt.UseNpgsql(config.GetConnectionString("DefaultConnection"));
         });
 
         // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
